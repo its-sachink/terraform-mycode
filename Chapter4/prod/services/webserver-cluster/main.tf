@@ -2,12 +2,16 @@ provider "aws" {
 	region = "eu-west-1"
 }
 
+module "vars" {
+	source = "../../vars"	
+}
+
 module "webserver-cluster" {
 	source = "../../../modules/services/webserver-cluster"
 
 	cluster_name = "webservers-prod"
-	db_remote_state_bucket = "tf-state-29-jan-19"
-	db_remote_state_key = "prod/data-stores/mysql/terraform.tfstate"
+	db_remote_state_bucket = "${module.vars.db_remote_state_bucket}"
+	db_remote_state_key = "${module.vars.db_remote_state_key}"
 
 	instance_type = "t2.micro" 	# we can keep it as m4.large
 	min_size = 2

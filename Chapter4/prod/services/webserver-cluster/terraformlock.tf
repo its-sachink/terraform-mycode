@@ -1,16 +1,21 @@
 # User edited file "terraform.tf" file
 
+module "vars" {
+	source = "../../vars"
+}
+
 terraform {
 	backend "s3" {
 	encrypt = true
-	bucket = "tf-state-29-jan-19"
+	bucket = "${module.vars.web_remote_state_bucket}"
+	dynamodb_table = "${module.vars.web_remote_state_dynamodb_table}"
 	region = "eu-west-1"
-	key = "stage/services/webserver-cluster/terraform.tfstate"
+	key = "${module.vars.web_remote_state_key}"
 	}
 }
 
 resource "aws_dynamodb_table" "dynamodb-terraform-state-lock-for-web" {
-	name = "terraform-state-lock-for-web"	# This should be unique for each type of locks
+	name = "${module.vars.web_remote_state_dynamodb_table}"	# This should be unique for each type of locks
 	hash_key = "LockID"
 	read_capacity = 20
 	write_capacity = 20
