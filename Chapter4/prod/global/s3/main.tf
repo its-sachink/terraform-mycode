@@ -41,6 +41,6 @@ resource "aws_dynamodb_table" "dynamodb-terraform-state-lock-for-s3" {
 ########### following is the sequence
 #1 : First create the resource
 #2 : Create the bucket
-#3 : Then create the backend
-#4 : Add "dynamodb" database to the main.tf file
-#5 : edit "terraformlock.tf" to include the "dynamodb" database in the "s3" configuration
+#3 : Then create the s3 backend - run "terraform init" here
+#4 : Add "dynamodb" database to the main.tf file	- run "terraform apply" here
+#5 : edit "terraformlock.tf" to include the "dynamodb" database in the "s3" configuration - again run "terraform init" here.

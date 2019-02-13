@@ -1,0 +1,136 @@
+{
+    "version": 3,
+    "terraform_version": "0.11.11",
+    "serial": 2,
+    "lineage": "98fd4bb0-e911-1718-5ba3-70ef894cfa54",
+    "modules": [
+        {
+            "path": [
+                "root"
+            ],
+            "outputs": {
+                "address": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "terraform-20190212092817969000000001.cinpdz65ltvg.eu-west-1.rds.amazonaws.com"
+                },
+                "port": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "3306"
+                }
+            },
+            "resources": {
+                "aws_db_instance.example": {
+                    "type": "aws_db_instance",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "terraform-20190212092817969000000001",
+                        "attributes": {
+                            "address": "terraform-20190212092817969000000001.cinpdz65ltvg.eu-west-1.rds.amazonaws.com",
+                            "allocated_storage": "10",
+                            "arn": "arn:aws:rds:eu-west-1:158207973304:db:terraform-20190212092817969000000001",
+                            "auto_minor_version_upgrade": "true",
+                            "availability_zone": "eu-west-1a",
+                            "backup_retention_period": "0",
+                            "backup_window": "00:31-01:01",
+                            "ca_cert_identifier": "rds-ca-2015",
+                            "copy_tags_to_snapshot": "false",
+                            "db_subnet_group_name": "default",
+                            "deletion_protection": "false",
+                            "domain": "",
+                            "domain_iam_role_name": "",
+                            "enabled_cloudwatch_logs_exports.#": "0",
+                            "endpoint": "terraform-20190212092817969000000001.cinpdz65ltvg.eu-west-1.rds.amazonaws.com:3306",
+                            "engine": "mysql",
+                            "engine_version": "5.6.40",
+                            "hosted_zone_id": "Z29XKXDKYMONMX",
+                            "iam_database_authentication_enabled": "false",
+                            "id": "terraform-20190212092817969000000001",
+                            "identifier": "terraform-20190212092817969000000001",
+                            "instance_class": "db.t2.micro",
+                            "iops": "0",
+                            "kms_key_id": "",
+                            "license_model": "general-public-license",
+                            "maintenance_window": "wed:01:35-wed:02:05",
+                            "monitoring_interval": "0",
+                            "multi_az": "false",
+                            "name": "example_database",
+                            "option_group_name": "default:mysql-5-6",
+                            "parameter_group_name": "default.mysql5.6",
+                            "password": "password",
+                            "port": "3306",
+                            "publicly_accessible": "false",
+                            "replicas.#": "0",
+                            "replicate_source_db": "",
+                            "resource_id": "db-7LGFICBLRWHXFUCANXZ7Z4M64U",
+                            "security_group_names.#": "0",
+                            "skip_final_snapshot": "false",
+                            "status": "available",
+                            "storage_encrypted": "false",
+                            "storage_type": "gp2",
+                            "tags.%": "0",
+                            "timezone": "",
+                            "username": "admin",
+                            "vpc_security_group_ids.#": "1",
+                            "vpc_security_group_ids.2419573407": "sg-0a470273"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 2400000000000,
+                                "delete": 2400000000000,
+                                "update": 4800000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_dynamodb_table.dynamodb-terraform-state-lock-for-db": {
+                    "type": "aws_dynamodb_table",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "terraform-state-lock-for-db",
+                        "attributes": {
+                            "arn": "arn:aws:dynamodb:eu-west-1:158207973304:table/terraform-state-lock-for-db",
+                            "attribute.#": "1",
+                            "attribute.2068930648.name": "LockID",
+                            "attribute.2068930648.type": "S",
+                            "billing_mode": "PROVISIONED",
+                            "global_secondary_index.#": "0",
+                            "hash_key": "LockID",
+                            "id": "terraform-state-lock-for-db",
+                            "local_secondary_index.#": "0",
+                            "name": "terraform-state-lock-for-db",
+                            "point_in_time_recovery.#": "1",
+                            "point_in_time_recovery.0.enabled": "false",
+                            "read_capacity": "20",
+                            "server_side_encryption.#": "0",
+                            "stream_arn": "",
+                            "stream_enabled": "false",
+                            "stream_label": "",
+                            "stream_view_type": "",
+                            "tags.%": "1",
+                            "tags.Name": "DyanmoDB terraform State Lock",
+                            "ttl.#": "0",
+                            "write_capacity": "20"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 600000000000,
+                                "delete": 600000000000,
+                                "update": 600000000000
+                            },
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                }
+            },
+            "depends_on": []
+        }
+    ]
+}
