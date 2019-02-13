@@ -38,3 +38,10 @@ resource "aws_autoscaling_schedule" "scale_in_at_night" {
 	autoscaling_group_name = "${module.webserver-cluster.asg_name}"
 }
 
+
+########### following is the sequence
+#1 : First create the resource
+#2 : Create the bucket
+#3 : Then create the s3 backend - run "terraform init" here
+#4 : Add "dynamodb" database to the main.tf file	- run "terraform apply" here
+#5 : edit "terraformlock.tf" to include the "dynamodb" database in the "s3" configuration - again run "terraform init" here.
